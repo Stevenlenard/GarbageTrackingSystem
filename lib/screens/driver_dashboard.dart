@@ -471,10 +471,6 @@ class _DriverDashboardState extends State<DriverDashboard> {
     );
   }
 
-  Widget _buildPlaceholderScreen() {
-    return const Center(child: Text("Coming Soon", style: TextStyle(color: Colors.grey)));
-  }
-
   void _showLogoutDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -496,7 +492,9 @@ class _DriverDashboardState extends State<DriverDashboard> {
                   await _updateStatus("OFFLINE");
                   await SessionManager.logout();
                   if (!mounted) return;
-                  Navigator.pushReplacementNamed(context, '/');
+                  if (context.mounted) {
+                    Navigator.pushReplacementNamed(context, '/');
+                  }
                 },
                 style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF00BFA5), minimumSize: const Size(double.infinity, 56), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)), elevation: 0),
                 child: const Text("Sign Out", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w900)),

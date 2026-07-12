@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart' hide Size;
-import '../utils/app_theme.dart';
 
 class DriverTrackTruckScreen extends StatefulWidget {
   final bool isEmbedded;

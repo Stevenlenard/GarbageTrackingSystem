@@ -343,10 +343,10 @@ class _AdminDashboardState extends State<AdminDashboard> {
             ),
 
             // Real-time Tracking
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
               child: Row(
-                children: const [
+                children: [
                   Icon(Icons.location_on_rounded, color: Color(0xFF1A1A1A), size: 24),
                   SizedBox(width: 8),
                   Text(
@@ -1244,7 +1244,9 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 onPressed: () async {
                   await SessionManager.logout();
                   if (!mounted) return;
-                  Navigator.pushReplacementNamed(context, '/');
+                  if (context.mounted) {
+                    Navigator.pushReplacementNamed(context, '/');
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF00BFA5),

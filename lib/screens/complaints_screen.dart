@@ -186,7 +186,7 @@ class _ComplaintsScreenState extends State<ComplaintsScreen> with SingleTickerPr
           if (items.isEmpty)
             const Center(child: Padding(padding: EdgeInsets.only(top: 40), child: Text("No reports found", style: TextStyle(color: Colors.grey))))
           else
-            ...items.map((item) => _buildIssueCard(item, isResident)).toList(),
+            ...items.map((item) => _buildIssueCard(item, isResident)),
 
           const SizedBox(height: 24),
           const Center(child: Text("View All", style: TextStyle(color: Color(0xFF1976D2), fontWeight: FontWeight.w900, fontSize: 14))),

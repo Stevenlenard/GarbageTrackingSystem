@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:firebase_database/firebase_database.dart';
 import '../api/api_service.dart';
-import '../utils/app_theme.dart';
 
 class AnalyticsScreen extends StatefulWidget {
   final bool isEmbedded;
@@ -34,9 +33,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         final Map<String, double> counts = {"Active": 0, "Idle": 0, "Full": 0};
         data.forEach((key, value) {
           String status = value['status']?.toString().toLowerCase() ?? 'idle';
-          if (status == 'active') counts['Active'] = counts['Active']! + 1;
-          else if (status == 'full') counts['Full'] = counts['Full']! + 1;
-          else counts['Idle'] = counts['Idle']! + 1;
+          if (status == 'active') {
+            counts['Active'] = counts['Active']! + 1;
+          } else if (status == 'full') {
+            counts['Full'] = counts['Full']! + 1;
+          } else {
+            counts['Idle'] = counts['Idle']! + 1;
+          }
         });
         if (mounted) setState(() => _truckStatusData = counts);
       }
@@ -48,9 +51,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         final Map<String, double> counts = {"Pending": 0, "In Progress": 0, "Resolved": 0};
         for (var c in complaints) {
           String status = c['status'].toString().toLowerCase().replaceAll('_', ' ');
-          if (status == 'pending') counts['Pending'] = counts['Pending']! + 1;
-          else if (status == 'in progress') counts['In Progress'] = counts['In Progress']! + 1;
-          else if (status == 'resolved') counts['Resolved'] = counts['Resolved']! + 1;
+          if (status == 'pending') {
+            counts['Pending'] = counts['Pending']! + 1;
+          } else if (status == 'in progress') {
+            counts['In Progress'] = counts['In Progress']! + 1;
+          } else if (status == 'resolved') {
+            counts['Resolved'] = counts['Resolved']! + 1;
+          }
         }
         if (mounted) setState(() => _complaintStatusData = counts);
       }

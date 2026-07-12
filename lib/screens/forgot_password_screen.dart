@@ -362,10 +362,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   }
 
   void _handleAction() {
-    if (!_formKey.currentState!.validate()) return;
-    if (_currentStep == 1) _sendEmail();
-    else if (_currentStep == 2) _verifyOTP();
-    else if (_currentStep == 3) _resetPassword();
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+    if (_currentStep == 1) {
+      _sendEmail();
+    } else if (_currentStep == 2) {
+      _verifyOTP();
+    } else if (_currentStep == 3) {
+      _resetPassword();
+    }
   }
 
   void _sendEmail() async {

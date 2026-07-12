@@ -212,7 +212,7 @@ class _AdminSettingsScreenState extends State<AdminSettingsScreen> {
                         ],
                       ),
                     ),
-                    Switch(value: true, onChanged: (v) {}, activeColor: const Color(0xFF00BFA5)),
+                    Switch(value: true, onChanged: (v) {}, activeThumbColor: const WidgetStatePropertyAll(Color(0xFF00BFA5))),
                   ],
                 ),
               ),
@@ -469,7 +469,9 @@ class _AdminSettingsScreenState extends State<AdminSettingsScreen> {
                 onPressed: () async {
                   await SessionManager.logout();
                   if (!mounted) return;
-                  Navigator.pushReplacementNamed(context, '/');
+                  if (context.mounted) {
+                    Navigator.pushReplacementNamed(context, '/');
+                  }
                 },
                 style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF00BFA5), minimumSize: const Size(double.infinity, 56), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)), elevation: 0),
                 child: const Text("Sign Out", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w900)),

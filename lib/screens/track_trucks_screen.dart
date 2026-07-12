@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart' hide Size;
-import '../utils/app_theme.dart';
 
 class TrackTrucksScreen extends StatefulWidget {
   final bool isEmbedded;
@@ -69,7 +68,7 @@ class _TrackTrucksScreenState extends State<TrackTrucksScreen> {
           geometry: Point(coordinates: Position(lng, lat)),
           textField: id,
           textOffset: [0, 2],
-          textColor: Colors.blue.value,
+          textColor: Colors.blue.toARGB32(),
           iconImage: "truck-15", // Built-in Mapbox icon
         ),
       );
