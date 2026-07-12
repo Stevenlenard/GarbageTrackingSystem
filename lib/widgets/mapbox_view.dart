@@ -67,7 +67,7 @@ class _MapboxViewState extends State<MapboxView> {
             geometry: point,
             textField: "$driverName\n($status)",
             textSize: 10,
-            textColor: Colors.blue.value,
+            textColor: Colors.blue.toARGB32(),
             iconImage: "marker-15",
           ),
         );

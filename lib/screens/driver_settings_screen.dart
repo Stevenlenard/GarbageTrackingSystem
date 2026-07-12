@@ -152,7 +152,7 @@ class _DriverSettingsScreenState extends State<DriverSettingsScreen> {
           Text("Duty Alerts", style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16, color: Color(0xFF1A1A1A))),
           Text("Receive route notifications", style: TextStyle(fontSize: 12, color: Color(0xFF757575), fontWeight: FontWeight.w500)),
         ])),
-        Switch(value: _pushNotifications, onChanged: (v) => setState(() => _pushNotifications = v), activeColor: const Color(0xFF00BFA5)),
+        Switch(value: _pushNotifications, onChanged: (v) => setState(() => _pushNotifications = v), activeThumbColor: const Color(0xFF00BFA5)),
       ]),
     );
   }

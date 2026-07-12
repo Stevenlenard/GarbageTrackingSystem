@@ -379,7 +379,7 @@ class _ResidentRegisterScreenState extends State<ResidentRegisterScreen> {
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButtonFormField<String>(
-              value: _selectedPurok,
+              initialValue: _selectedPurok,
               validator: (value) => value == null ? 'Please select a Purok' : null,
               hint: const Text('Select your location', style: TextStyle(color: Color(0xFFBDBDBD), fontSize: 15, fontWeight: FontWeight.w400)),
               isExpanded: true,

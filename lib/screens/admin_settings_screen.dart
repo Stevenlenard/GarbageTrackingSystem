@@ -212,7 +212,7 @@ class _AdminSettingsScreenState extends State<AdminSettingsScreen> {
                         ],
                       ),
                     ),
-                    Switch(value: true, onChanged: (v) {}, activeThumbColor: const WidgetStatePropertyAll(Color(0xFF00BFA5))),
+                    Switch(value: true, onChanged: (v) {}, activeThumbColor: const Color(0xFF00BFA5)),
                   ],
                 ),
               ),
@@ -369,7 +369,7 @@ class _AdminSettingsScreenState extends State<AdminSettingsScreen> {
           Text(title, style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 16, color: Color(0xFF1A1A1A))),
           Text(subtitle, style: const TextStyle(fontSize: 12, color: Color(0xFFBDBDBD), fontWeight: FontWeight.w600)),
         ])),
-        Switch(value: value, onChanged: onChanged, activeColor: const Color(0xFF00BFA5)),
+        Switch(value: value, onChanged: onChanged, activeThumbColor: const Color(0xFF00BFA5)),
       ]),
     );
   }
