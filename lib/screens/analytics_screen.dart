@@ -210,7 +210,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         children: [
           Icon(icon, size: 18, color: const Color(0xFF2E7D32)),
           const SizedBox(width: 10),
-          Text(label, style: const TextStyle(color: Color(0xFF2E7D32), fontSize: 15, fontWeight: FontWeight.w800)),
+          const Text("label", style: TextStyle(color: Color(0xFF2E7D32), fontSize: 15, fontWeight: FontWeight.w800)),
         ],
       ),
     );
@@ -566,11 +566,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
+              const Row(
                 children: [
-                  const Icon(Icons.file_download_outlined, color: Color(0xFF00BFA5), size: 28),
-                  const SizedBox(width: 12),
-                  const Text("Export Reports", style: TextStyle(color: Color(0xFF00BFA5), fontSize: 22, fontWeight: FontWeight.w900)),
+                  Icon(Icons.file_download_outlined, color: Color(0xFF00BFA5), size: 28),
+                  SizedBox(width: 12),
+                  Text("Export Reports", style: TextStyle(color: Color(0xFF00BFA5), fontSize: 22, fontWeight: FontWeight.w900)),
                 ],
               ),
               const SizedBox(height: 8),

@@ -208,7 +208,7 @@ class _AdminSettingsScreenState extends State<AdminSettingsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text("Email Verification", style: TextStyle(fontWeight: FontWeight.w800, color: Color(0xFF1A1A1A))),
-                          Text("Verification codes sent to admin@balintawak.gov", style: TextStyle(fontSize: 11, color: Colors.grey[600])),
+                          const Text("Verification codes sent to admin@balintawak.gov", style: TextStyle(fontSize: 11, color: Color(0xFF757575))),
                         ],
                       ),
                     ),
