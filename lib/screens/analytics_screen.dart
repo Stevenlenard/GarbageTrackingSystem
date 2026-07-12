@@ -579,9 +579,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 child: Text("Choose your export settings for system data", style: TextStyle(color: Color(0xFF757575), fontSize: 13, fontWeight: FontWeight.w500))
               ),
               const SizedBox(height: 32),
-              _customDropdown("Report Type", ["All Reports", "Truck Performance", "Complaints Summary", "Route Efficiency", "Purok Coverage"]),
+              _customDropdown("Report Type", const ["All Reports", "Truck Performance", "Complaints Summary", "Route Efficiency", "Purok Coverage"]),
               const SizedBox(height: 20),
-              _customDropdown("File Format", ["PDF Document (.pdf)", "Excel Spreadsheet (.xlsx)"]),
+              _customDropdown("File Format", const ["PDF Document (.pdf)", "Excel Spreadsheet (.xlsx)"]),
               const SizedBox(height: 20),
               Row(
                 children: [

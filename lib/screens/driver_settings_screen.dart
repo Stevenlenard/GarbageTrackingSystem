@@ -260,7 +260,17 @@ class _DriverSettingsScreenState extends State<DriverSettingsScreen> {
       const SizedBox(height: 16),
       const Text("End your current duty session and sign out.", textAlign: TextAlign.center, style: TextStyle(color: Color(0xFF757575), fontSize: 13, height: 1.5, fontWeight: FontWeight.w500)),
       const SizedBox(height: 36),
-      ElevatedButton(onPressed: () async { await SessionManager.logout(); if (!mounted) return; Navigator.pushReplacementNamed(context, '/'); }, style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF00BFA5), minimumSize: const Size(double.infinity, 64), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), elevation: 0), child: const Text("SIGN OUT", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900, letterSpacing: 1))),
+      ElevatedButton(
+        onPressed: () async {
+          await SessionManager.logout();
+          if (!mounted) return;
+          if (context.mounted) {
+            Navigator.pushReplacementNamed(context, '/');
+          }
+        },
+        style: ElevatedButton.styleFrom(backgroundColor: const Color(0xFF00BFA5), minimumSize: const Size(double.infinity, 64), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), elevation: 0),
+        child: const Text("SIGN OUT", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900, letterSpacing: 1)),
+      ),
       const SizedBox(height: 16),
       TextButton(onPressed: () => Navigator.pop(context), child: const Text("CANCEL", style: TextStyle(color: Color(0xFFBDBDBD), fontWeight: FontWeight.w900, letterSpacing: 1.2))),
     ]))));

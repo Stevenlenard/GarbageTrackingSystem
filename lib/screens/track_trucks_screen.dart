@@ -138,10 +138,10 @@ class _TrackTrucksScreenState extends State<TrackTrucksScreen> {
             top: widget.isEmbedded ? 68 : 96,
             left: 0,
             right: 0,
-            child: LinearProgressIndicator(
+            child: const LinearProgressIndicator(
               value: 0.45,
-              backgroundColor: const Color(0xFFE0E0E0),
-              valueColor: const AlwaysStoppedAnimation(Color(0xFF2196F3)),
+              backgroundColor: Color(0xFFE0E0E0),
+              valueColor: AlwaysStoppedAnimation(Color(0xFF2196F3)),
               minHeight: 4,
             ),
           ),
@@ -336,9 +336,9 @@ class _TrackTrucksScreenState extends State<TrackTrucksScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildStatItem(Icons.local_shipping_outlined, "DISTANCE", "3.4 km", Color(0xFF2E7D32)),
-                _buildStatItem(Icons.local_gas_station_outlined, "FUEL", "0.7 L", Color(0xFFD32F2F)),
-                _buildStatItem(Icons.radio_button_checked_rounded, "STOPS", "2", Color(0xFFD32F2F)),
+                _buildStatItem(Icons.local_shipping_outlined, "DISTANCE", "3.4 km", const Color(0xFF2E7D32)),
+                _buildStatItem(Icons.local_gas_station_outlined, "FUEL", "0.7 L", const Color(0xFFD32F2F)),
+                _buildStatItem(Icons.radio_button_checked_rounded, "STOPS", "2", const Color(0xFFD32F2F)),
               ],
             ),
           ),
@@ -366,8 +366,11 @@ class _TrackTrucksScreenState extends State<TrackTrucksScreen> {
                 child: ElevatedButton.icon(
                   onPressed: () {
                     setState(() {
-                      if (isCompared) _comparedTrucks.remove(id);
-                      else _comparedTrucks.add(id);
+                      if (isCompared) {
+                        _comparedTrucks.remove(id);
+                      } else {
+                        _comparedTrucks.add(id);
+                      }
                     });
                   },
                   icon: Icon(isCompared ? Icons.visibility_off_rounded : Icons.navigation_rounded, size: 20),
@@ -386,13 +389,13 @@ class _TrackTrucksScreenState extends State<TrackTrucksScreen> {
           const SizedBox(height: 20),
 
           // Footer Info
-          Row(
+          const Row(
             children: [
-              const Icon(Icons.access_time_rounded, size: 16, color: Color(0xFFBDBDBD)),
-              const SizedBox(width: 4),
-              const Text("Last Update:", style: TextStyle(fontSize: 12, color: Color(0xFFBDBDBD), fontWeight: FontWeight.w500)),
-              const Spacer(),
-              const Text("ETA: 32 mins", style: TextStyle(fontSize: 12, color: Color(0xFF1E88E5), fontWeight: FontWeight.w900)),
+              Icon(Icons.access_time_rounded, size: 16, color: Color(0xFFBDBDBD)),
+              SizedBox(width: 4),
+              Text("Last Update:", style: TextStyle(fontSize: 12, color: Color(0xFFBDBDBD), fontWeight: FontWeight.w500)),
+              Spacer(),
+              Text("ETA: 32 mins", style: TextStyle(fontSize: 12, color: Color(0xFF1E88E5), fontWeight: FontWeight.w900)),
             ],
           ),
         ],
