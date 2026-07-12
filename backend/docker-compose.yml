@@ -1,0 +1,32 @@
+services:
+  # PHP API Service
+  api:
+    build: .
+    container_name: garbage_api
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mysql
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASS=
+      - DB_NAME=garbage_truck_system
+
+  # MySQL Database Service
+  mysql:
+    image: mysql:8.0
+    container_name: garbage_db
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: garbage_truck_system
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
